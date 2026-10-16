@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L3 SVT · Khôlles et cours</title>
+<meta name="description" content="Page de la promo L3 SVT et préparation au CAPES 2026-27 : khôlles, sujets, ressources.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F5F1EA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='12' fill='%23FFF35C' stroke='%23C0392B' stroke-width='5'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%231F2328'%3EL3%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --encre: #1F2328;
+    --encre-2: #57606A;
+    --encre-3: #8A8F96;
+    --fond: #F5F1EA;
+    --fond-2: #ECE6DB;
+    --carte: #FFFFFF;
+    --trait: #E4DDD1;
+    --rouge: #B03A48;
+    --rouge-clair: #FBEDEF;
+    --vert: #2F7D4F;
+    --vert-clair: #EBF5EE;
+    --ambre: #9A6200;
+    --ambre-clair: #FFF4DC;
+    --jaune: #FFF35C;
+    --jaune-bord: #C0392B;
+    --craie: #F4F1E8;
+    --ombre: 0 1px 2px rgba(31, 35, 40, .05), 0 10px 30px rgba(31, 35, 40, .06);
+    --police: "Avenir Next", "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--police);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--encre);
+    background: var(--fond);
+    -webkit-font-smoothing: antialiased;
+  }
+  [hidden] { display: none !important; }
+  a { color: inherit; }
+  h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.01em; }
+  p { margin: 0; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid #4C8BF5; outline-offset: 2px; }
+
+  /* En-tête et onglets */
+  .entete {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 18px 16px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .marque { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+  .pastille {
+    display: grid; place-items: center;
+    width: 38px; height: 38px;
+    background: var(--jaune);
+    border: 2.5px solid var(--jaune-bord);
+    border-radius: 9px;
+    font-weight: 800; font-size: 14px;
+    transform: rotate(-6deg);
+    flex: none;
+  }
+  .marque strong { display: block; font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
+  .marque small { display: block; font-size: 13px; color: var(--encre-2); }
+  .auteur { font-size: 13px; color: var(--encre-2); text-align: right; }
+  .auteur strong { display: block; color: var(--encre); font-weight: 600; }
+
+  .barre {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245, 241, 234, .9);
+    -webkit-backdrop-filter: saturate(1.4) blur(10px);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--trait);
+  }
+  .onglets {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    display: flex; gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .onglets::-webkit-scrollbar { display: none; }
+  .onglets a {
+    flex: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    color: var(--encre-2);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s, color .15s;
+  }
+  .onglets a:hover { background: var(--fond-2); color: var(--encre); }
+  .onglets a[aria-current="page"] { background: var(--encre); color: #fff; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 16px 16px 40px; }
+  .panneau > * + * { margin-top: 16px; }
+
+  /* Cartes */
+  .carte {
+    background: var(--carte);
+    border-radius: 20px;
+    padding: 22px 20px;
+    box-shadow: var(--ombre);
+  }
+  .carte-tete { margin-bottom: 18px; }
+  #bloc-reponse { scroll-margin-top: 72px; }
+  .carte-tete h2 { font-size: 22px; font-weight: 800; }
+  .carte-tete p { margin-top: 4px; color: var(--encre-2); }
+  .surtitre {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--encre-3);
+  }
+
+  /* Tableau noir */
+  .tableau {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    padding: 22px 20px 20px;
+    color: var(--craie);
+    background:
+      radial-gradient(60% 50% at 85% 15%, rgba(255, 255, 255, .06), transparent 70%),
+      radial-gradient(120% 90% at 10% 0%, #2F5444 0%, #1E352B 55%, #172A22 100%);
+    border: 7px solid #8A6748;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25), var(--ombre);
+  }
+  .tableau-haut { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .tableau .surtitre { color: rgba(244, 241, 232, .65); margin-top: 6px; }
+  .sticker {
+    flex: none;
+    background: var(--jaune);
+    border: 2.5px solid var(--jaune-bord);
+    border-radius: 4px;
+    padding: 5px 11px 6px;
+    color: var(--encre);
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-6deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+  }
+  .sticker span { display: block; font-size: 11px; }
+  .sticker strong { display: block; font-size: 16px; font-weight: 800; }
+  .tableau h1 {
+    margin-top: 10px;
+    font-size: clamp(40px, 11vw, 60px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .tableau .date { margin-top: 4px; font-size: 20px; font-weight: 600; color: #FFE873; }
+  .infos { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .infos li {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .14);
+    font-size: 14px;
+  }
+  .infos svg { width: 16px; height: 16px; flex: none; opacity: .85; }
+  .infos .fort { background: var(--jaune); border-color: var(--jaune); color: var(--encre); font-weight: 700; }
+
+  svg.icone { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Formulaire */
+  form { counter-reset: etape; }
+  fieldset.etape { border: 0; margin: 0; padding: 0; min-width: 0; }
+  fieldset.etape + fieldset.etape { margin-top: 26px; }
+  .etape legend {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0; margin-bottom: 12px;
+    font-size: 17px; font-weight: 700;
+  }
+  .etape legend::before {
+    counter-increment: etape;
+    content: counter(etape);
+    display: grid; place-items: center;
+    width: 26px; height: 26px; flex: none;
+    border-radius: 50%;
+    background: var(--encre); color: #fff;
+    font-size: 13px; font-weight: 700;
+  }
+  .facultatif { font-weight: 500; color: var(--encre-3); font-size: 14px; }
+  .aide { margin: -4px 0 12px; font-size: 14px; color: var(--encre-2); }
+
+  .deux { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .champ span { display: block; font-size: 13px; font-weight: 600; color: var(--encre-2); margin-bottom: 5px; }
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    font: inherit; font-size: 16px;
+    color: var(--encre);
+    background: #FCFBF8;
+    border: 1.5px solid var(--trait);
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+  }
+  textarea { min-height: 100px; resize: vertical; line-height: 1.45; }
+  input:focus, textarea:focus { outline: none; background: #fff; border-color: var(--encre); box-shadow: 0 0 0 3px rgba(31, 35, 40, .1); }
+  ::placeholder { color: #A9A39A; }
+
+  .presences { display: grid; gap: 10px; }
+  .tuile { position: relative; display: block; cursor: pointer; }
+  .tuile input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .tuile-corps {
+    display: flex; align-items: center; gap: 14px;
+    padding: 13px 16px;
+    border: 2px solid var(--trait);
+    border-radius: 14px;
+    background: #fff;
+    transition: border-color .15s, background .15s, transform .1s;
+  }
+  .tuile:active .tuile-corps { transform: scale(.99); }
+  .tuile-icone {
+    display: grid; place-items: center;
+    width: 34px; height: 34px; flex: none;
+    border-radius: 50%;
+    background: var(--fond-2);
+    color: var(--encre-2);
+    transition: background .15s, color .15s;
+  }
+  .tuile-icone svg { width: 18px; height: 18px; stroke-width: 2.6; }
+  .tuile-corps strong { display: block; font-size: 16px; }
+  .tuile-corps small { display: block; font-size: 14px; color: var(--encre-2); }
+  .tuile.oui { --c: var(--vert); --c-clair: var(--vert-clair); }
+  .tuile.non { --c: var(--rouge); --c-clair: var(--rouge-clair); }
+  .tuile input:checked + .tuile-corps { border-color: var(--c); background: var(--c-clair); }
+  .tuile input:checked + .tuile-corps .tuile-icone { background: var(--c); color: #fff; }
+  .tuile input:focus-visible + .tuile-corps { outline: 3px solid #4C8BF5; outline-offset: 2px; }
+
+  .piege { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .erreur {
+    margin-top: 18px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: var(--rouge-clair);
+    color: #8A2532;
+    font-size: 15px; font-weight: 600;
+  }
+  .bouton {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px 20px;
+    border: 0; border-radius: 14px;
+    background: var(--encre); color: #fff;
+    font-size: 17px; font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .1s, box-shadow .15s, opacity .15s;
+    box-shadow: 0 6px 16px rgba(31, 35, 40, .18);
+  }
+  .bouton:hover { transform: translateY(-1px); }
+  .bouton:active { transform: translateY(0); }
+  .bouton[disabled] { opacity: .6; cursor: progress; transform: none; }
+  .bouton.secondaire { background: #fff; color: var(--encre); border: 1.5px solid var(--trait); box-shadow: none; }
+  .bouton.petit { width: auto; margin-top: 0; padding: 9px 14px; font-size: 14px; border-radius: 11px; }
+  .note { margin-top: 10px; text-align: center; font-size: 13px; color: var(--encre-3); }
+  .rond { width: 18px; height: 18px; border: 2.5px solid rgba(255, 255, 255, .35); border-top-color: #fff; border-radius: 50%; animation: tourne .8s linear infinite; }
+  @keyframes tourne { to { transform: rotate(360deg); } }
+
+  /* Confirmation */
+  .confirmation { text-align: center; padding: 6px 0 2px; }
+  .coche {
+    display: grid; place-items: center;
+    width: 60px; height: 60px; margin: 0 auto 14px;
+    border-radius: 50%;
+    background: var(--vert); color: #fff;
+    animation: apparait .35s ease-out;
+  }
+  .coche svg { width: 30px; height: 30px; stroke-width: 3; }
+  @keyframes apparait { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .confirmation h2 { font-size: 24px; font-weight: 800; }
+  .confirmation > p { margin-top: 4px; color: var(--encre-2); }
+  .recap {
+    margin: 18px 0 0;
+    padding: 4px 16px;
+    border-radius: 14px;
+    background: var(--fond);
+    text-align: left;
+  }
+  .recap div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 10px 0; }
+  .recap div + div { border-top: 1px solid var(--trait); }
+  .recap dt { font-size: 14px; color: var(--encre-2); }
+  .recap dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+
+  /* Déroulé */
+  .deroule { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .deroule li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
+  .deroule .pic {
+    display: grid; place-items: center;
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    background: var(--fond-2);
+  }
+  .deroule .pic svg { width: 18px; height: 18px; }
+  .deroule strong { display: block; }
+  .deroule .desc { color: var(--encre-2); font-size: 15px; }
+  .rouge-txt { color: var(--rouge); font-weight: 600; }
+  .vert-txt { color: var(--vert); font-weight: 600; }
+  .lien-fleche {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--jaune);
+  }
+
+  /* Sujets */
+  .titre-panneau h1 { font-size: 28px; font-weight: 800; }
+  .titre-panneau p { margin-top: 6px; color: var(--encre-2); }
+  .titre-panneau .bouton { margin-top: 16px; }
+  .theme { border-radius: 20px; overflow: hidden; box-shadow: var(--ombre); background: #fff; }
+  .theme-tete { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 16px 20px; color: #fff; }
+  .theme-tete h2 { font-size: 19px; font-weight: 800; }
+  .theme-tete span { font-size: 14px; opacity: .85; white-space: nowrap; }
+  .theme.rouge .theme-tete { background: var(--rouge); }
+  .theme.vert .theme-tete { background: var(--vert); }
+  .categories { display: grid; gap: 10px; padding: 12px; }
+  .categorie { border-radius: 14px; padding: 14px 14px 12px; }
+  .theme.rouge .categorie { background: var(--rouge-clair); --c: var(--rouge); }
+  .theme.vert .categorie { background: var(--vert-clair); --c: var(--vert); }
+  .categorie h3 { font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--c); }
+  .categorie ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 7px; }
+  .categorie li { display: grid; grid-template-columns: 28px 1fr; gap: 6px; }
+  .categorie li b { color: var(--c); font-variant-numeric: tabular-nums; }
+
+  /* Espace prof */
+  .prof-tete { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .prof-tete h1 { font-size: 26px; font-weight: 800; margin-top: 2px; }
+  .prof-tete .maj { margin-top: 4px; font-size: 13px; color: var(--encre-3); }
+  .prof-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .kpi { background: #fff; border-radius: 16px; padding: 14px 16px; box-shadow: var(--ombre); border-top: 4px solid var(--encre); }
+  .kpi b { display: block; font-size: 30px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .kpi b small { font-size: 17px; color: var(--encre-3); font-weight: 700; }
+  .kpi span { font-size: 14px; color: var(--encre-2); }
+  .kpi.oui { border-top-color: var(--vert); }
+  .kpi.non { border-top-color: var(--rouge); }
+  .bloc-titre { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  .bloc-titre h2 { font-size: 19px; font-weight: 800; }
+  .bloc-titre span { font-size: 14px; color: var(--encre-3); }
+  .puces { display: flex; flex-wrap: wrap; gap: 8px; }
+  .puce { padding: 6px 12px; border-radius: 999px; background: var(--fond); font-size: 14px; font-weight: 600; }
+  .puce small { font-weight: 500; color: var(--encre-3); }
+  .vide { color: var(--encre-3); font-size: 15px; }
+
+  .reponse { padding: 14px 0; }
+  .reponse + .reponse { border-top: 1px solid var(--trait); }
+  .reponse .haut { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .reponse .qui { font-weight: 700; margin-right: auto; }
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .badge.oui { background: var(--vert-clair); color: var(--vert); }
+  .badge.non { background: var(--rouge-clair); color: var(--rouge); }
+  .badge.gris { background: var(--fond); color: var(--encre-2); }
+  .reponse .details { margin-top: 4px; font-size: 14px; color: var(--encre-2); }
+  .reponse blockquote {
+    margin: 8px 0 0;
+    padding: 8px 12px;
+    border-left: 3px solid var(--jaune-bord);
+    background: #FFFBE0;
+    border-radius: 0 10px 10px 0;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8px 16px 32px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--encre-3);
+  }
+  footer a { color: var(--encre-3); }
+
+  @media (min-width: 640px) {
+    .carte { padding: 28px 30px; }
+    .tableau { padding: 28px 30px 26px; }
+    .presences { grid-template-columns: repeat(2, 1fr); }
+    .categories { grid-template-columns: 1fr 1fr; padding: 14px; }
+  }
+  @media (max-width: 380px) {
+    .deux { grid-template-columns: 1fr; }
+    .auteur { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="entete">
+  <a class="marque" href="#kholle">
+    <span class="pastille" aria-hidden="true">L3</span>
+    <span><strong>L3 SVT</strong><small>et préparation au CAPES · 2026-27</small></span>
+  </a>
+  <p class="auteur"><strong>Dimitri Garcia</strong>Université Côte d'Azur</p>
+</header>
+
+<div class="barre">
+  <!-- Ajouter un onglet : un lien ici + une <section class="panneau" data-onglet="..."> dans <main>. -->
+  <nav class="onglets" aria-label="Rubriques">
+    <a href="#kholle">Khôlle n°2</a>
+    <a href="#sujets">Sujets</a>
+  </nav>
+</div>
+
+<main>
+
+  <!-- ========== Onglet : khôlle ========== -->
+  <section class="panneau" data-onglet="kholle">
+
+    <div class="tableau">
+      <div class="tableau-haut">
+        <p class="surtitre">Prochaine khôlle</p>
+        <div class="sticker"><span>Préparation concours</span><strong>L3 SVT</strong></div>
+      </div>
+      <h1 id="k-titre">Khôlle n°2</h1>
+      <p class="date" id="k-date"></p>
+      <ul class="infos">
+        <li id="k-compte" class="fort"><svg class="icone" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span></span></li>
+        <li><svg class="icone" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="k-salle"></span></li>
+        <li><svg class="icone" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l2-4M16 20l-2-4"/></svg><span>Sujet de synthèse au tableau</span></li>
+      </ul>
+    </div>
+
+    <div class="carte" id="bloc-reponse">
+      <div class="carte-tete" id="reponse-tete">
+        <h2>Votre réponse</h2>
+        <p id="reponse-intro">Indiquez-moi si vous viendrez à la khôlle de lundi.</p>
+      </div>
+
+      <form id="formulaire" novalidate>
+        <fieldset class="etape">
+          <legend>Votre nom</legend>
+          <div class="deux">
+            <label class="champ"><span>Prénom</span><input type="text" name="prenom" autocomplete="given-name" maxlength="60" required></label>
+            <label class="champ"><span>Nom</span><input type="text" name="nom" autocomplete="family-name" maxlength="80" required></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="etape">
+          <legend id="question-presence">Viendrez-vous&nbsp;?</legend>
+          <div class="presences">
+            <label class="tuile oui"><input type="radio" name="presence" value="oui"><span class="tuile-corps"><span class="tuile-icone"><svg class="icone" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span><strong>Oui</strong><small>je viendrai</small></span></span></label>
+            <label class="tuile non"><input type="radio" name="presence" value="non"><span class="tuile-corps"><span class="tuile-icone"><svg class="icone" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span><span><strong>Non</strong><small>je ne pourrai pas venir</small></span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="etape">
+          <legend><span>Un imprévu ou une contrainte&nbsp;? <span class="facultatif">(facultatif)</span></span></legend>
+          <textarea name="message" maxlength="1000" placeholder="Par exemple : je dois partir avant 11h, ou je travaille le lundi matin."></textarea>
+        </fieldset>
+
+        <input class="piege" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <p class="erreur" id="erreur" role="alert" hidden></p>
+        <button class="bouton" type="submit" id="envoyer">Envoyer ma réponse</button>
+        <p class="note">Vous pourrez modifier votre réponse en revenant sur cette page.</p>
+      </form>
+
+      <div class="confirmation" id="confirmation" hidden>
+        <div class="coche"><svg class="icone" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+        <h2 id="conf-titre"></h2>
+        <p id="conf-sous-titre"></p>
+        <dl class="recap" id="conf-recap"></dl>
+        <button class="bouton secondaire" type="button" id="modifier">Modifier ma réponse</button>
+        <p class="note" id="conf-date"></p>
+      </div>
+
+      <p class="vide" id="reponses-closes" hidden>La khôlle est passée, donc les réponses sont closes.</p>
+    </div>
+
+    <div class="carte">
+      <div class="carte-tete"><h2>Comment ça se passe</h2></div>
+      <ol class="deroule">
+        <li>
+          <span class="pic"><svg class="icone" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg></span>
+          <p><strong>Par petits groupes</strong><span class="desc">Vous passez par petits groupes, chaque groupe à son horaire. Je compose les groupes à partir de vos réponses, puis je vous communique votre horaire de passage.</span></p>
+        </li>
+        <li>
+          <span class="pic"><svg class="icone" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+          <p><strong>Vous tirez une ligne de deux sujets</strong><span class="desc">La ligne porte un sujet sur <span class="rouge-txt">le cœur et les vaisseaux sanguins</span> et un sujet sur <span class="vert-txt">la nutrition des végétaux et le sol</span>. Vous traitez celui des deux que vous choisissez.</span></p>
+        </li>
+        <li>
+          <span class="pic"><svg class="icone" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l2-4M16 20l-2-4"/></svg></span>
+          <p><strong>Sujet de synthèse au tableau</strong><span class="desc">Vous construisez votre exposé au tableau, sans document.</span></p>
+        </li>
+      </ol>
+      <a class="lien-fleche" href="#sujets">Voir les 23 sujets du programme →</a>
+    </div>
+
+  </section>
+
+  <!-- ========== Onglet : sujets ========== -->
+  <section class="panneau" data-onglet="sujets" hidden>
+    <div class="carte titre-panneau">
+      <p class="surtitre">Programme de khôlle n°2 · lundi 19 octobre</p>
+      <h1 style="margin-top:6px">Les sujets pour réviser</h1>
+      <p>Voici des exemples de sujets pour réviser le sujet tableau, classés par thème. La liste n'est pas exhaustive.</p>
+      <a class="bouton secondaire" href="pdf/programme-kholle-2-l3-svt.pdf" target="_blank" rel="noopener">
+        <svg class="icone" viewBox="0 0 24 24" width="18" height="18"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        Télécharger la fiche (PDF)
+      </a>
+    </div>
+    <div id="liste-sujets"></div>
+  </section>
+
+  <!-- ========== Espace prof (hors onglets, lien en bas de page) ========== -->
+  <section class="panneau" data-onglet="prof" hidden>
+    <div class="carte" id="prof-connexion">
+      <div class="carte-tete">
+        <p class="surtitre">Espace prof</p>
+        <h2 style="margin-top:4px">Réponses des étudiants</h2>
+        <p>Le code se trouve dans l'onglet « Réglages » du tableur des inscriptions. Cet appareil le garde en mémoire.</p>
+      </div>
+      <form id="prof-form">
+        <label class="champ"><span>Code</span><input type="password" name="code" autocomplete="current-password" required></label>
+        <p class="erreur" id="prof-erreur" role="alert" hidden></p>
+        <button class="bouton" type="submit">Ouvrir</button>
+      </form>
+    </div>
+
+    <div id="prof-tableau" hidden>
+      <div class="prof-tete">
+        <div>
+          <p class="surtitre">Espace prof</p>
+          <h1 id="prof-titre"></h1>
+          <p class="maj" id="prof-maj"></p>
+        </div>
+        <div class="prof-actions">
+          <button class="bouton secondaire petit" type="button" id="prof-actualiser">Actualiser</button>
+          <a class="bouton secondaire petit" id="prof-tableur" href="#" target="_blank" rel="noopener">Tableur</a>
+          <button class="bouton secondaire petit" type="button" id="prof-oublier">Oublier le code</button>
+        </div>
+      </div>
+      <div class="kpis" id="prof-kpis" style="margin-top:16px"></div>
+      <div class="carte" style="margin-top:16px" id="prof-manquants"></div>
+      <div class="carte" style="margin-top:16px" id="prof-messages"></div>
+      <div class="carte" style="margin-top:16px" id="prof-liste"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Dimitri Garcia · L3 SVT et préparation au CAPES · Université Côte d'Azur · 2026-27
+  <br><a href="#prof">Espace prof</a>
+</footer>
+
+<script>
+"use strict";
+
+/* ========== Réglages ========== */
+const CONFIG = {
+  // Adresse de l'application Web Apps Script (Déployer > Application Web), qui range les réponses dans le tableur.
+  inscriptions: "https://script.google.com/macros/s/AKfycbwJgeZFpBB9-pFov9kptdgmpeknKbGGd6IAIs41p-wiOczn1JSkg-NHXOO7mMmP9sR7qw/exec",
+  kholle: {
+    id: "kholle-2",
+    titre: "Khôlle n°2",
+    date: "2026-10-19",
+    salle: "Salle des L3 SVT", // affiché tel quel ; vide : « Salle communiquée bientôt »
+  },
+};
+
+const SUJETS = [
+  { theme: "Le cœur et les vaisseaux sanguins", couleur: "rouge", categories: [
+    { titre: "Le cœur, organe", sujets: [
+      [1, "Les relations structure-fonction du cœur des Mammifères"],
+      [2, "Le cycle cardiaque"],
+      [3, "Le débit et le rythme cardiaques"],
+    ]},
+    { titre: "Les cellules et l'automatisme", sujets: [
+      [4, "Les cellules cardiaques"],
+      [5, "Le tissu nodal"],
+      [6, "L'automatisme cardiaque, un automatisme sous contrôle"],
+      [7, "L'activité électrique du cœur des Mammifères"],
+    ]},
+    { titre: "Les vaisseaux", sujets: [
+      [8, "Structure et fonction des vaisseaux sanguins"],
+      [9, "Le rôle des artères et des artérioles dans la circulation sanguine"],
+      [10, "L'importance physiologique des capillaires sanguins"],
+    ]},
+    { titre: "Le contrôle et l'adaptation", sujets: [
+      [11, "Relation entre organisation et fonction du système cardiovasculaire des Mammifères"],
+    ]},
+  ]},
+  { theme: "Nutrition des végétaux et le sol", couleur: "vert", categories: [
+    { titre: "Le sol", sujets: [
+      [12, "Structure et dynamique d'un sol"],
+      [13, "Le sol : formation et évolution"],
+      [14, "Les êtres vivants du sol"],
+      [15, "Les propriétés du sol et conséquences sur les êtres vivants"],
+    ]},
+    { titre: "L'absorption racinaire", sujets: [
+      [16, "La racine, interface entre la plante et le sol"],
+      [17, "De la solution du sol à la sève brute"],
+      [18, "L'absorption des ions minéraux chez les Angiospermes"],
+      [19, "Les mycorhizes"],
+    ]},
+    { titre: "Les sèves", sujets: [
+      [20, "La sève brute"],
+      [21, "La sève élaborée"],
+      [22, "Comparaison sève brute et sève élaborée"],
+    ]},
+    { titre: "Le végétal entier", sujets: [
+      [23, "Interdépendance des organes aériens et souterrains des végétaux"],
+    ]},
+  ]},
+];
+
+/* ========== Outils ========== */
+const $ = (s, r = document) => r.querySelector(s);
+
+function el(tag, props, ...enfants) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") n.className = v;
+    else if (k === "text") n.textContent = v;
+    else if (k === "style") n.setAttribute("style", v);
+    else n.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of enfants.flat()) if (c != null && c !== false) n.append(c);
+  return n;
+}
+
+const stockage = {
+  lire(cle) { try { return JSON.parse(localStorage.getItem(cle)); } catch (e) { return null; } },
+  ecrire(cle, v) { try { localStorage.setItem(cle, JSON.stringify(v)); } catch (e) {} },
+  effacer(cle) { try { localStorage.removeItem(cle); } catch (e) {} },
+};
+const CLE_REPONSE = "l3svt:reponse:" + CONFIG.kholle.id;
+const CLE_PROFIL = "l3svt:profil";
+const CLE_CODE = "l3svt:code-prof";
+
+const PRESENCES = {
+  oui: { court: "Oui", long: "Oui, je viendrai" },
+  non: { court: "Non", long: "Non, je ne pourrai pas venir" },
+};
+
+function dateLocale(iso) {
+  const [a, m, j] = iso.split("-").map(Number);
+  return new Date(a, m - 1, j);
+}
+function joursAvant(iso) {
+  const auj = new Date(); auj.setHours(0, 0, 0, 0);
+  return Math.round((dateLocale(iso) - auj) / 86400000);
+}
+function majuscule(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function heure(d) { return new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" }).format(d).replace(":", "h"); }
+function quand(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return "";
+  return new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" }).format(d) + " à " + heure(d);
+}
+const jourKholle = majuscule(new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(dateLocale(CONFIG.kholle.date)));
+const jourMoyen = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" }).format(dateLocale(CONFIG.kholle.date));
+
+// Le script Google met de 1 à 35 s à répondre et renvoie parfois une erreur passagère
+// (404 sur sa page de réponse) : chaque essai a 45 s, et un second essai suit un échec.
+// Un envoi retenté peut créer une ligne en double dans le tableur ; l'espace prof ne garde que la dernière.
+async function requete(url, options, essais = 2) {
+  for (let i = 1; ; i++) {
+    const ctrl = new AbortController();
+    const minuteur = setTimeout(() => ctrl.abort(), 45000);
+    try {
+      const r = await fetch(url, Object.assign({ signal: ctrl.signal, redirect: "follow" }, options || {}));
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return await r.json();
+    } catch (e) {
+      if (i >= essais) throw e;
+    } finally {
+      clearTimeout(minuteur);
+    }
+    await new Promise(fin => setTimeout(fin, 1500));
+  }
+}
+
+/* ========== Onglets ========== */
+function afficherOnglet(nom) {
+  const panneaux = [...document.querySelectorAll(".panneau")];
+  if (!panneaux.some(p => p.dataset.onglet === nom)) nom = "kholle";
+  panneaux.forEach(p => { p.hidden = p.dataset.onglet !== nom; });
+  document.querySelectorAll(".onglets a").forEach(a => {
+    if (a.getAttribute("href") === "#" + nom) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  if (nom === "prof") ouvrirProf();
+}
+window.addEventListener("hashchange", () => { afficherOnglet(location.hash.slice(1)); window.scrollTo(0, 0); });
+
+/* ========== Onglet khôlle ========== */
+function preparerKholle() {
+  const k = CONFIG.kholle;
+  $("#k-titre").textContent = k.titre;
+  $("#k-date").textContent = jourKholle;
+  $("#k-salle").textContent = k.salle || "Salle communiquée bientôt";
+  $("#question-presence").textContent = "Viendrez-vous " + jourMoyen + " ?";
+
+  const n = joursAvant(k.date);
+  const compte = $("#k-compte span");
+  compte.textContent = n > 1 ? "Dans " + n + " jours" : n === 1 ? "Demain" : n === 0 ? "Aujourd'hui" : "Khôlle passée";
+
+  const form = $("#formulaire");
+  form.addEventListener("change", majFormulaire);
+  form.addEventListener("submit", envoyerReponse);
+  $("#modifier").addEventListener("click", () => {
+    remplirFormulaire(stockage.lire(CLE_REPONSE));
+    montrer("formulaire");
+    $("#bloc-reponse").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  if (n < 0) { montrer("closes"); return; }
+  const deja = stockage.lire(CLE_REPONSE);
+  if (deja) { afficherConfirmation(deja); return; }
+  const profil = stockage.lire(CLE_PROFIL);
+  if (profil) remplirFormulaire(profil);
+  montrer("formulaire");
+}
+
+function montrer(vue) {
+  $("#formulaire").hidden = vue !== "formulaire";
+  $("#confirmation").hidden = vue !== "confirmation";
+  $("#reponses-closes").hidden = vue !== "closes";
+  $("#reponse-tete").hidden = vue === "confirmation";
+}
+
+function lireFormulaire() {
+  const f = $("#formulaire");
+  return {
+    kholle: CONFIG.kholle.id,
+    prenom: f.prenom.value.trim(),
+    nom: f.nom.value.trim(),
+    presence: (f.querySelector("input[name=presence]:checked") || {}).value || "",
+    message: f.message.value.trim(),
+    site: f.site.value,
+  };
+}
+
+function remplirFormulaire(d) {
+  if (!d) return;
+  const f = $("#formulaire");
+  f.prenom.value = d.prenom || "";
+  f.nom.value = d.nom || "";
+  if (d.presence) {
+    const r = f.querySelector("input[name=presence][value='" + d.presence + "']");
+    if (r) r.checked = true;
+  }
+  f.message.value = d.message || "";
+  majFormulaire();
+}
+
+function majFormulaire() {
+  const d = lireFormulaire();
+  $("#formulaire").message.placeholder = d.presence === "non"
+    ? "Si vous le souhaitez, indiquez-moi la raison."
+    : "Par exemple : je dois partir avant 11h, ou je travaille le lundi matin.";
+  $("#erreur").hidden = true;
+}
+
+async function envoyerReponse(ev) {
+  ev.preventDefault();
+  const d = lireFormulaire();
+  const erreur = !d.prenom || !d.nom ? "Indiquez votre prénom et votre nom."
+    : !d.presence ? "Indiquez si vous viendrez (Oui ou Non)."
+    : !CONFIG.inscriptions ? "Les réponses ne sont pas encore ouvertes. Revenez un peu plus tard."
+    : "";
+  if (erreur) return afficherErreur(erreur);
+
+  const bouton = $("#envoyer");
+  bouton.disabled = true;
+  bouton.replaceChildren(el("span", { class: "rond", "aria-hidden": "true" }), "Envoi en cours, quelques secondes…");
+  try {
+    const rep = await requete(CONFIG.inscriptions, { method: "POST", body: JSON.stringify(d) });
+    if (!rep.ok) throw new Error(rep.erreur || "refus");
+    const enregistree = {
+      prenom: d.prenom, nom: d.nom, presence: d.presence, message: d.message,
+      envoye: new Date().toISOString(),
+    };
+    stockage.ecrire(CLE_REPONSE, enregistree);
+    stockage.ecrire(CLE_PROFIL, { prenom: d.prenom, nom: d.nom });
+    afficherConfirmation(enregistree);
+    $("#bloc-reponse").scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (e) {
+    afficherErreur("L'envoi n'a pas abouti. Vérifiez votre connexion et réessayez. Si l'envoi échoue encore, prévenez-moi directement.");
+  } finally {
+    bouton.disabled = false;
+    bouton.textContent = "Envoyer ma réponse";
+  }
+}
+
+function afficherErreur(texte) {
+  const e = $("#erreur");
+  e.textContent = texte;
+  e.hidden = false;
+}
+
+function afficherConfirmation(d) {
+  $("#conf-titre").textContent = "C'est noté, " + d.prenom + " !";
+  $("#conf-sous-titre").textContent = "Voici votre réponse pour la khôlle du " + jourKholle.toLowerCase() + ".";
+  const lignes = [["Présence", PRESENCES[d.presence] ? PRESENCES[d.presence].long : d.presence]];
+  if (d.message) lignes.push(["Imprévu ou contrainte", d.message]);
+  $("#conf-recap").replaceChildren(...lignes.map(([t, v]) => el("div", null, el("dt", { text: t }), el("dd", { text: v }))));
+  $("#conf-date").textContent = d.envoye ? "Vous l'avez envoyée " + quand(d.envoye) + "." : "";
+  montrer("confirmation");
+}
+
+/* ========== Onglet sujets ========== */
+function preparerSujets() {
+  $("#liste-sujets").replaceChildren(...SUJETS.map((t, i) => {
+    const total = t.categories.reduce((s, c) => s + c.sujets.length, 0);
+    return el("article", { class: "theme " + t.couleur, style: i ? "margin-top:16px" : null },
+      el("div", { class: "theme-tete" }, el("h2", { text: t.theme }), el("span", { text: total + " sujets" })),
+      el("div", { class: "categories" }, t.categories.map(c =>
+        el("div", { class: "categorie" },
+          el("h3", { text: c.titre }),
+          el("ol", null, c.sujets.map(([n, titre]) => el("li", null, el("b", { text: n }), el("span", { text: titre }))))))));
+  }));
+}
+
+/* ========== Espace prof ========== */
+let profCharge = false;
+
+function ouvrirProf() {
+  if (profCharge) return;
+  if (stockage.lire(CLE_CODE)) chargerProf();
+  else montrerConnexion();
+}
+
+function montrerConnexion(message) {
+  $("#prof-connexion").hidden = false;
+  $("#prof-tableau").hidden = true;
+  const e = $("#prof-erreur");
+  e.textContent = message || "";
+  e.hidden = !message;
+}
+
+async function chargerProf() {
+  const code = stockage.lire(CLE_CODE);
+  if (!CONFIG.inscriptions) return montrerConnexion("L'adresse du tableur n'est pas encore réglée dans la page.");
+  const bouton = $("#prof-actualiser");
+  bouton.disabled = true;
+  bouton.textContent = "Chargement…";
+  try {
+    const url = new URL(CONFIG.inscriptions);
+    url.searchParams.set("action", "reponses");
+    url.searchParams.set("code", code);
+    url.searchParams.set("kholle", CONFIG.kholle.id);
+    const rep = await requete(url.toString());
+    if (!rep.ok) {
+      if (rep.motif === "code") { stockage.effacer(CLE_CODE); return montrerConnexion("Code incorrect."); }
+      throw new Error(rep.erreur);
+    }
+    profCharge = true;
+    $("#prof-connexion").hidden = true;
+    $("#prof-tableau").hidden = false;
+    rendreProf(rep);
+  } catch (e) {
+    if (!profCharge) montrerConnexion("Lecture impossible (" + (e.message || "réseau") + "). Réessayer dans un instant.");
+    else $("#prof-maj").textContent = "Actualisation impossible, réessayer dans un instant.";
+  } finally {
+    bouton.disabled = false;
+    bouton.textContent = "Actualiser";
+  }
+}
+
+const normaliser = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const mots = s => normaliser(s).split(" ").filter(m => m.length >= 3);
+const cleNom = s => normaliser(s) || String(s || "").trim().toLowerCase();
+
+// Rapproche une réponse d'un étudiant de la liste par le nom de famille ;
+// si plusieurs étudiants partagent ce nom, le prénom départage.
+function retrouverEtudiant(etudiants, r) {
+  const motsR = new Set(mots(r.prenom + " " + r.nom));
+  const candidats = etudiants.filter(s => s.mots.some(m => motsR.has(m)));
+  if (candidats.length <= 1) return candidats[0];
+  return candidats.find(s => normaliser(s.prenom) === normaliser(r.prenom));
+}
+
+function rendreProf(data) {
+  const etudiants = (data.etudiants || []).map((s, i) => Object.assign({}, s, { i, mots: mots(s.nom) }));
+  const parEtudiant = new Map();
+  for (const r of data.reponses || []) {
+    const s = retrouverEtudiant(etudiants, r);
+    const cle = s ? "e" + s.i : "n" + cleNom(r.prenom) + "|" + cleNom(r.nom);
+    const prec = parEtudiant.get(cle);
+    if (!prec) parEtudiant.set(cle, { r, s, envois: 1 });
+    else if (r.recu >= prec.r.recu) parEtudiant.set(cle, { r, s, envois: prec.envois + 1 });
+    else prec.envois += 1;
+  }
+  const nomDe = x => x.s ? x.s.prenom + " " + x.s.nom : x.r.prenom + " " + x.r.nom;
+  const entrees = [...parEtudiant.values()].sort((a, b) => normaliser(a.s ? a.s.nom : a.r.nom).localeCompare(normaliser(b.s ? b.s.nom : b.r.nom)));
+  const compte = p => entrees.filter(x => x.r.presence === p).length;
+  const manquants = etudiants.filter(s => !parEtudiant.has("e" + s.i));
+
+  $("#prof-titre").textContent = CONFIG.kholle.titre + " · " + jourKholle.toLowerCase().replace(/ \d{4}$/, "");
+  $("#prof-maj").textContent = "Mis à jour à " + heure(new Date());
+  $("#prof-tableur").href = data.tableur || "#";
+
+  const kpi = (classe, valeur, total, libelle) => el("div", { class: "kpi " + classe },
+    el("b", null, String(valeur), total != null ? el("small", { text: " / " + total }) : null), el("span", { text: libelle }));
+  $("#prof-kpis").replaceChildren(
+    kpi("", entrees.length, etudiants.length || null, "réponses"),
+    kpi("oui", compte("oui"), null, "présents"),
+    kpi("non", compte("non"), null, "absents"));
+
+  const titreBloc = (titre, detail) => el("div", { class: "bloc-titre" }, el("h2", { text: titre }), detail ? el("span", { text: detail }) : null);
+
+  $("#prof-manquants").replaceChildren(
+    titreBloc("Pas encore répondu", manquants.length + " sur " + etudiants.length),
+    manquants.length
+      ? el("div", { class: "puces" }, manquants.map(s => el("span", { class: "puce" }, s.prenom + " " + s.nom, s.parcours ? el("small", { text: " · " + s.parcours }) : null)))
+      : el("p", { class: "vide", text: "Tout le monde a répondu." }));
+
+  const badge = p => el("span", { class: "badge " + (p || "gris"), text: PRESENCES[p] ? PRESENCES[p].court : "?" });
+  const avecMessage = entrees.filter(x => x.r.message);
+  $("#prof-messages").replaceChildren(
+    titreBloc("Imprévus et contraintes", String(avecMessage.length)),
+    ...(avecMessage.length
+      ? avecMessage.map(x => el("div", { class: "reponse" },
+          el("div", { class: "haut" }, el("span", { class: "qui", text: nomDe(x) }), badge(x.r.presence)),
+          el("blockquote", { text: x.r.message })))
+      : [el("p", { class: "vide", text: "Aucun imprévu signalé pour l'instant." })]));
+
+  $("#prof-liste").replaceChildren(
+    titreBloc("Toutes les réponses", String(entrees.length)),
+    ...(entrees.length
+      ? entrees.map(x => el("div", { class: "reponse" },
+          el("div", { class: "haut" },
+            el("span", { class: "qui", text: nomDe(x) }),
+            x.s ? null : el("span", { class: "badge gris", title: "Nom absent de l'onglet Étudiants du tableur", text: "hors liste" }),
+            x.envois > 1 ? el("span", { class: "badge gris", text: x.envois + " envois" }) : null,
+            badge(x.r.presence)),
+          el("p", { class: "details", text: "Reçue " + quand(x.r.recu) })))
+      : [el("p", { class: "vide", text: "Aucune réponse pour l'instant." })]));
+}
+
+function preparerProf() {
+  $("#prof-form").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const code = ev.target.code.value.trim();
+    if (!code) return;
+    stockage.ecrire(CLE_CODE, code);
+    ev.target.code.value = "";
+    chargerProf();
+  });
+  $("#prof-actualiser").addEventListener("click", chargerProf);
+  $("#prof-oublier").addEventListener("click", () => {
+    stockage.effacer(CLE_CODE);
+    profCharge = false;
+    montrerConnexion();
+  });
+}
+
+/* ========== Démarrage ========== */
+preparerKholle();
+preparerSujets();
+preparerProf();
+afficherOnglet(location.hash.slice(1));
+</script>
+</body>
+</html>
