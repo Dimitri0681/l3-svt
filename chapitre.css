@@ -1,0 +1,88 @@
+/* Pages de chapitre (vidéos + cartes Anki). La couleur du chapitre se règle par --c et --c-clair sur <body>. */
+.tableau .sticker { position: absolute; top: 20px; right: 20px; }
+
+/* Progression à la craie */
+.progression { margin-top: 20px; max-width: 420px; }
+.progression p { font-size: 15px; color: rgba(244, 241, 232, .85); }
+.progression b { color: #FFE873; }
+.progression small { display: block; margin-top: 8px; font-size: 13px; color: rgba(244, 241, 232, .6); }
+.jauge { margin-top: 8px; height: 10px; border-radius: 999px; background: rgba(255, 255, 255, .12); overflow: hidden; }
+.jauge span { display: block; height: 100%; width: 0; border-radius: 999px; background: #FFE873; transition: width .4s ease; }
+
+/* Méthode */
+.methode { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 14px; }
+.methode li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+.methode .pic { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--c-clair); color: var(--c); font-weight: 800; }
+.methode strong { display: block; }
+.methode span.desc { color: var(--encre-2); font-size: 15px; }
+
+/* Liste des vidéos */
+.videos { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.video { background: var(--carte); border-radius: 18px; box-shadow: var(--ombre); overflow: hidden; border: 2px solid transparent; transition: border-color .15s; }
+.video.ouverte { border-color: var(--c); }
+.video.vue .num { background: var(--vert); color: #fff; }
+.tete {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  padding: 14px 16px 10px; border: 0; background: none; cursor: pointer; text-align: left;
+}
+.num { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--c-clair); color: var(--c); font-weight: 800; font-size: 17px; transition: background .2s, color .2s; }
+.num svg { width: 20px; height: 20px; stroke-width: 3; }
+.quoi { flex: 1; min-width: 0; }
+.quoi strong { display: block; font-size: 17px; line-height: 1.3; }
+.quoi small { display: block; margin-top: 2px; font-size: 14px; color: var(--encre-3); }
+.lecture { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--c); color: #fff; box-shadow: 0 6px 14px -6px var(--c); }
+.lecture svg { width: 16px; height: 16px; fill: currentColor; margin-left: 2px; }
+.lecture svg.icone { fill: none; width: 18px; height: 18px; stroke-width: 3; margin-left: 0; }
+.video.ouverte .lecture { background: var(--encre-2); box-shadow: none; }
+.ecran { position: relative; aspect-ratio: 16 / 9; background: #111; }
+.ecran iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.outils { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 14px 70px; }
+.video.ouverte .outils { padding-top: 12px; }
+.pilule {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 999px;
+  font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer;
+  border: 1.5px solid var(--trait); background: #fff; color: var(--encre);
+}
+.pilule svg { width: 16px; height: 16px; }
+.pilule.anki { background: var(--jaune); border-color: var(--jaune-bord); }
+.pilule.anki[aria-disabled="true"] { background: var(--fond); border-color: var(--trait); color: var(--encre-3); cursor: default; }
+.pilule.vu { position: relative; }
+.pilule.vu input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pilule.vu .case { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--encre-3); }
+.pilule.vu .case svg { width: 12px; height: 12px; stroke-width: 3.2; opacity: 0; }
+.pilule.vu:has(input:checked) { background: var(--vert-clair); border-color: var(--vert); color: var(--vert); }
+.pilule.vu input:checked + .case { background: var(--vert); border-color: var(--vert); color: #fff; }
+.pilule.vu input:checked + .case svg { opacity: 1; }
+.pilule.vu:has(input:focus-visible) { outline: 3px solid #4C8BF5; outline-offset: 2px; }
+/* Chapitre pas encore ouvert : contenu visible en grisé */
+.annonce { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, .1); }
+.annonce svg { width: 20px; height: 20px; color: #FFE873; margin-top: 1px; }
+body.ferme .video { filter: grayscale(1); opacity: .6; }
+body.ferme .tete { cursor: not-allowed; }
+body.ferme .lecture { background: var(--encre-3); box-shadow: none; }
+body.ferme .lecture svg.icone { width: 18px; height: 18px; }
+.bientot { text-align: center; color: var(--encre-2); }
+.bientot strong { display: block; font-size: 18px; color: var(--encre); margin-bottom: 4px; }
+
+/* Clin d'œil quand toutes les vidéos sont vues */
+.bravo { display: grid; gap: 22px; align-items: center; text-align: center; }
+.bravo .polaroid { width: 190px; justify-self: center; transform: rotate(-3deg); }
+@media (min-width: 640px) { .bravo { grid-template-columns: 190px 1fr; text-align: left; } }
+
+/* Aide Anki */
+details.aide { background: var(--carte); border-radius: 18px; box-shadow: var(--ombre); padding: 0 20px; }
+details.aide summary { cursor: pointer; padding: 18px 0; font-weight: 800; font-size: 17px; list-style: none; display: flex; align-items: center; gap: 12px; }
+details.aide summary::-webkit-details-marker { display: none; }
+details.aide summary .pastille { width: 32px; height: 32px; font-size: 11px; }
+details.aide summary::after { content: "+"; margin-left: auto; font-size: 22px; color: var(--encre-3); }
+details.aide[open] summary::after { content: "−"; }
+details.aide ol { margin: 0; padding: 0 0 20px 20px; display: grid; gap: 8px; color: var(--encre-2); }
+details.aide ol strong { color: var(--encre); }
+
+@media (min-width: 521px) {
+  .tableau h1 { padding-right: 150px; }
+}
+@media (max-width: 520px) {
+  .outils { padding-left: 16px; }
+  .tableau .sticker { display: none; }
+}

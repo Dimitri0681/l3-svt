@@ -1,0 +1,176 @@
+/* Thème commun à toutes les pages de la promo L3 SVT (même palette que la page de la khôlle n°2). */
+:root {
+  color-scheme: light;
+  --encre: #1F2328;
+  --encre-2: #57606A;
+  --encre-3: #8A8F96;
+  --fond: #F5F1EA;
+  --fond-2: #ECE6DB;
+  --carte: #FFFFFF;
+  --trait: #E4DDD1;
+  --rouge: #B03A48;
+  --rouge-clair: #FBEDEF;
+  --vert: #2F7D4F;
+  --vert-clair: #EBF5EE;
+  --ambre: #9A6200;
+  --ambre-clair: #FFF4DC;
+  --bleu: #1F6F78;
+  --bleu-clair: #E6F2F2;
+  --jaune: #FFF35C;
+  --jaune-bord: #C0392B;
+  --craie: #F4F1E8;
+  --ardoise: #1E352B;
+  --ombre: 0 1px 2px rgba(31, 35, 40, .05), 0 10px 30px rgba(31, 35, 40, .06);
+  --police: "Avenir Next", "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--police);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--encre);
+  background: var(--fond);
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: inherit; }
+h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.01em; }
+p { margin: 0; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid #4C8BF5; outline-offset: 2px; }
+svg.icone { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* En-tête */
+.entete {
+  max-width: 880px; margin: 0 auto; padding: 18px 16px 10px;
+  display: flex; align-items: center; gap: 12px;
+}
+.marque { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+.pastille {
+  display: grid; place-items: center; width: 38px; height: 38px; flex: none;
+  background: var(--jaune); border: 2.5px solid var(--jaune-bord); border-radius: 9px;
+  font-weight: 800; font-size: 14px; transform: rotate(-6deg);
+}
+.marque strong { display: block; font-size: 17px; font-weight: 800; }
+.marque small { display: block; font-size: 13px; color: var(--encre-2); }
+.auteur { font-size: 13px; color: var(--encre-2); text-align: right; }
+.auteur strong { display: block; color: var(--encre); font-weight: 600; }
+
+/* Barre des rubriques, collée en haut de l'écran sur toutes les pages : « Accueil » reste à un clic. */
+.barre {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(245, 241, 234, .92);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--trait);
+}
+.onglets { max-width: 880px; margin: 0 auto; padding: 8px 16px; display: flex; align-items: center; gap: 6px; }
+/* « Accueil » est hors de la zone qui défile : il reste visible quelle que soit la rubrique ouverte. */
+.defile {
+  flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
+  padding-left: 10px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 28px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 14px, #000 calc(100% - 28px), transparent);
+}
+.defile::-webkit-scrollbar { display: none; }
+.onglets a {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px; border: 2px solid transparent;
+  font-weight: 600; font-size: 15px; color: var(--encre-2);
+  text-decoration: none; white-space: nowrap; transition: background .15s, color .15s;
+}
+.onglets a:hover { background: var(--fond-2); color: var(--encre); }
+.onglets .point { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+.onglets a[aria-current="page"] { background: var(--encre); color: #fff; }
+.onglets a.maison { background: var(--jaune); border-color: var(--jaune-bord); color: var(--encre); font-weight: 800; }
+.onglets a.maison svg { width: 17px; height: 17px; }
+.onglets a.maison[aria-current="page"] { background: var(--encre); border-color: var(--encre); color: #fff; }
+
+main { max-width: 880px; margin: 0 auto; padding: 18px 16px 40px; }
+main > * + * { margin-top: 18px; }
+
+/* Cartes */
+.carte { background: var(--carte); border-radius: 20px; padding: 22px 20px; box-shadow: var(--ombre); }
+.carte h2 { font-size: 21px; font-weight: 800; }
+.carte .sous { margin-top: 4px; color: var(--encre-2); }
+.surtitre { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--encre-3); }
+.titre-section { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 34px 2px 14px; }
+.titre-section h2 { font-size: 22px; font-weight: 800; }
+.titre-section span { font-size: 14px; color: var(--encre-3); }
+
+/* Tableau noir */
+.tableau {
+  position: relative; overflow: hidden; border-radius: 22px;
+  padding: 24px 20px 22px; color: var(--craie);
+  background:
+    radial-gradient(60% 50% at 85% 15%, rgba(255, 255, 255, .06), transparent 70%),
+    radial-gradient(120% 90% at 10% 0%, #2F5444 0%, #1E352B 55%, #172A22 100%);
+  border: 7px solid #8A6748;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25), var(--ombre);
+}
+.tableau .surtitre { color: rgba(244, 241, 232, .65); }
+.tableau h1 { margin-top: 8px; font-size: clamp(36px, 9vw, 54px); font-weight: 800; letter-spacing: -.02em; }
+.tableau .chapeau { margin-top: 8px; font-size: 18px; color: rgba(244, 241, 232, .85); max-width: 460px; }
+.sticker {
+  display: inline-block; background: var(--jaune); border: 2.5px solid var(--jaune-bord); border-radius: 4px;
+  padding: 5px 11px 6px; color: var(--encre); text-align: center; line-height: 1.15;
+  transform: rotate(-6deg); box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+}
+.sticker span { display: block; font-size: 11px; }
+.sticker strong { display: block; font-size: 16px; font-weight: 800; }
+.infos { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.infos > * {
+  display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 999px;
+  background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14);
+  font-size: 14px; text-decoration: none;
+}
+.infos svg { width: 16px; height: 16px; flex: none; opacity: .85; }
+.infos .fort { background: var(--jaune); border-color: var(--jaune); color: var(--encre); font-weight: 700; }
+.infos a.lien { background: #fff; border-color: #fff; color: var(--encre); font-weight: 700; }
+
+/* Boutons */
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 12px 18px; border: 0; border-radius: 14px;
+  background: var(--encre); color: #fff; font-size: 16px; font-weight: 700;
+  text-decoration: none; cursor: pointer; box-shadow: 0 6px 16px rgba(31, 35, 40, .18);
+  transition: transform .1s;
+}
+.bouton:hover { transform: translateY(-1px); }
+.bouton svg { width: 18px; height: 18px; }
+.bouton.secondaire { background: #fff; color: var(--encre); border: 1.5px solid var(--trait); box-shadow: none; }
+
+footer {
+  max-width: 880px; margin: 0 auto; padding: 8px 16px 32px;
+  text-align: center; font-size: 13px; color: var(--encre-3);
+}
+footer a { color: var(--encre-3); }
+
+@media (min-width: 640px) {
+  .carte { padding: 26px 28px; }
+  .tableau { padding: 30px 32px 28px; }
+}
+@media (max-width: 520px) { .titre-section span { display: none; } }
+@media (max-width: 380px) { .auteur { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Photo épinglée (polaroïd et ruban adhésif) */
+.polaroid {
+  position: relative; margin: 0; background: #FBFAF6; padding: 8px 8px 34px; border-radius: 3px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .28);
+}
+.polaroid::before {
+  content: ""; position: absolute; top: -10px; left: 50%; width: 70px; height: 22px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 243, 92, .75); box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+.polaroid img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.polaroid figcaption {
+  position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center;
+  font-size: 13px; line-height: 1.25; color: var(--encre-2); font-weight: 600;
+}
