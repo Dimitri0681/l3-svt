@@ -1,6 +1,7 @@
 "use strict";
 // Pages de chapitre : chaque page déclare CHAPITRE (mot court) et VIDEOS avant de charger ce fichier.
 // VIDEOS : [identifiant Vimeo, titre, durée "m:ss", lien de téléchargement du paquet Anki ("" = bientôt)].
+// ANKI_PAR_VIDEO = false (facultatif) : un seul paquet pour le chapitre, pas de bouton « Cartes Anki » sous les vidéos.
 
 const ICONES = {
   lecture: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>',
@@ -32,6 +33,7 @@ function ecrireVu(id, v) {
   try { v ? localStorage.setItem("vu-" + CHAPITRE + "-" + id, "1") : localStorage.removeItem("vu-" + CHAPITRE + "-" + id); } catch (e) {}
 }
 
+const ankiParVideo = typeof ANKI_PAR_VIDEO === "undefined" || ANKI_PAR_VIDEO;
 const liste = document.getElementById("videos");
 const total = VIDEOS.length;
 
@@ -72,7 +74,7 @@ VIDEOS.forEach(function (v, i) {
       '<span class="lecture">' + ICONES.lecture + '</span>' +
     '</button>' +
     '<div class="outils">' +
-      (anki && !ferme
+      (!ankiParVideo ? '' : anki && !ferme
         ? '<a class="pilule anki" href="' + anki + '">' + ICONES.telecharger + 'Cartes Anki</a>'
         : '<span class="pilule anki" aria-disabled="true">' + ICONES.telecharger + (anki ? 'Cartes Anki' : 'Cartes Anki bientôt') + '</span>') +
       (ferme ? '' : '<label class="pilule vu"><input type="checkbox"><span class="case">' + ICONES.coche + '</span>Vue</label>') +
