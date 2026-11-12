@@ -1,6 +1,7 @@
 "use strict";
 // Pages de chapitre : chaque page déclare CHAPITRE (mot court) et VIDEOS avant de charger ce fichier.
-// VIDEOS : [identifiant Vimeo, titre, durée "m:ss", lien de téléchargement du paquet Anki ("" = bientôt)].
+// VIDEOS : [identifiant Vimeo, titre, durée "m:ss", lien de téléchargement du paquet Anki ("" = bientôt),
+//           identifiant Drive de la fiche de cours PDF (facultatif : sans lui, pas de bouton « Fiche »)].
 // ANKI_PAR_VIDEO = false (facultatif) : un seul paquet pour le chapitre, pas de bouton « Cartes Anki » sous les vidéos.
 
 const ICONES = {
@@ -9,7 +10,18 @@ const ICONES = {
   coche: '<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
   telecharger: '<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
   cadenas: '<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+  fiche: '<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
 };
+
+// Fiche de cours sur Drive : « Voir la fiche » l'ouvre dans un nouvel onglet, « Télécharger » enregistre le PDF.
+function boutonFiche(fiche) {
+  if (!fiche) return "";
+  if (ferme) return '<span class="pilule fiche" aria-disabled="true">' + ICONES.fiche + 'Fiche de cours</span>';
+  return '<span class="pilule fiche">' +
+    '<a href="https://drive.google.com/file/d/' + fiche + '/view" target="_blank" rel="noopener">' + ICONES.fiche + 'Voir la fiche</a>' +
+    '<a href="https://drive.google.com/uc?export=download&amp;id=' + fiche + '">' + ICONES.telecharger + 'Télécharger</a>' +
+  '</span>';
+}
 
 // Chapitre fermé tant que l'heure OUVERTURE (déclarée par la page) n'est pas passée : la liste se voit en grisé,
 // sans lecture des vidéos, ni cartes Anki, ni coches. La page se recharge seule à l'heure d'ouverture.
@@ -64,7 +76,7 @@ bravo.innerHTML =
 if (total) liste.after(bravo);
 
 VIDEOS.forEach(function (v, i) {
-  const [id, titre, duree, anki] = v;
+  const [id, titre, duree, anki, fiche] = v;
   const li = document.createElement("li");
   li.className = "video";
   li.innerHTML =
@@ -74,6 +86,7 @@ VIDEOS.forEach(function (v, i) {
       '<span class="lecture">' + ICONES.lecture + '</span>' +
     '</button>' +
     '<div class="outils">' +
+      boutonFiche(fiche) +
       (!ankiParVideo ? '' : anki && !ferme
         ? '<a class="pilule anki" href="' + anki + '">' + ICONES.telecharger + 'Cartes Anki</a>'
         : '<span class="pilule anki" aria-disabled="true">' + ICONES.telecharger + (anki ? 'Cartes Anki' : 'Cartes Anki bientôt') + '</span>') +

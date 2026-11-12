@@ -46,6 +46,13 @@
 .pilule svg { width: 16px; height: 16px; }
 .pilule.anki { background: var(--jaune); border-color: var(--jaune-bord); }
 .pilule.anki[aria-disabled="true"] { background: var(--fond); border-color: var(--trait); color: var(--encre-3); cursor: default; }
+/* Fiche de cours : une pilule en deux moitiés aux couleurs du chapitre (voir / télécharger) */
+.pilule.fiche { padding: 0; gap: 0; overflow: hidden; cursor: default; background: var(--c-clair); color: var(--c); border-color: var(--trait); border-color: color-mix(in srgb, var(--c) 35%, transparent); }
+.pilule.fiche a { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; color: inherit; text-decoration: none; transition: background .15s; }
+.pilule.fiche a + a { border-left: 1.5px solid var(--trait); border-left-color: color-mix(in srgb, var(--c) 35%, transparent); }
+.pilule.fiche a:hover { background: color-mix(in srgb, var(--c) 12%, var(--c-clair)); }
+.pilule.fiche a:focus-visible { outline: 3px solid #4C8BF5; outline-offset: -3px; border-radius: 999px; }
+.pilule.fiche[aria-disabled="true"] { padding: 7px 13px; gap: 7px; background: var(--fond); border-color: var(--trait); color: var(--encre-3); }
 .pilule.vu { position: relative; }
 .pilule.vu input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .pilule.vu .case { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--encre-3); }
